@@ -1,0 +1,18 @@
+{
+  "name": "devjobs",
+  "version": "1.0.0",
+  "description": "portal devjobs con nodejs, handlebars mongoose",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index"
+  },
+  "author": "jesus tapia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
