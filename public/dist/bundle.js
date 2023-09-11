@@ -15,7 +15,7 @@
   \**************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://devjobs/./public/js/app.js?");
+eval("document.addEventListener('DOMContentLoaded', () => {\r\n    const skills = document.querySelector('.lista-conocimientos')\r\n\r\n    if (skills) {\r\n        skills.addEventListener('click', agregarSkills)\r\n    }\r\n})\r\n\r\nconst skills = new Set()\r\n\r\nconst agregarSkills = e => {\r\n    if (e.target.tagName === 'LI') {        \r\n        if  (e.target.classList.contains('activo')) {\r\n            skills.delete(e.target.textContent)\r\n            e.target.classList.remove('activo')\r\n        } else {\r\n            skills.add(e.target.textContent)\r\n            e.target.classList.add('activo')\r\n        }\r\n    } \r\n\r\n    const skillsArray = [...skills]\r\n    document.querySelector('#skills').value = skillsArray\r\n    \r\n}\n\n//# sourceURL=webpack://devjobs/./public/js/app.js?");
 
 /***/ })
 
