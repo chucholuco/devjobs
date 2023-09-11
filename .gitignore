@@ -5,7 +5,7 @@ node_modules
 *.log
 
 # Ignore environment configuration files
-.env
+*.env
 
 # Ignore OS-specific files
 .DS_Store
