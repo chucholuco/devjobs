@@ -29,7 +29,7 @@ app.use(session({
     secret: process.env.SECRETO,
     key: process.env.key,
     resave: false,
-    saveUnitialized: false,
+    saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.DATABASE })
 }))
 
