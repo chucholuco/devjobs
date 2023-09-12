@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "nodemon ./index",
     "desarrollo": "concurrently \"npm run dev\" \"npm run watch\" ",
-    "start" : "node ./index.js",
+    "start": "node ./index.js",
     "watch": "webpack --mode development"
   },
   "author": "jesus tapia",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "concurrently": "^8.2.1",
     "connect-mongo": "^5.0.0",
     "cookie-parser": "^1.4.6",
@@ -23,7 +24,7 @@
     "shortid": "^2.2.16",
     "slug": "^8.2.3"
   },
-  "devDependencies": {    
+  "devDependencies": {
     "nodemon": "^3.0.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
