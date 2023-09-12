@@ -4,9 +4,10 @@
   "description": "portal devjobs con nodejs, handlebars mongoose",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "start": "concurrently \"npm run dev\" \"npm run watch\" ",
-    "watch": "webpack --watch --mode development"
+    "dev": "nodemon ./index",
+    "desarrollo": "concurrently \"npm run dev\" \"npm run watch\" ",
+    "start" : "node ./index.js",
+    "watch": "webpack --w --mode development"
   },
   "author": "jesus tapia",
   "license": "ISC",

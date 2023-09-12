@@ -7,8 +7,6 @@ exports.mostrarTrabajos = async (req, res) => {
 
     if (!vacantes) return next()
 
-    console.log("vaca vaca: " + vacantes)
-
     res.render('home', {
         nombrePagina: 'devJobs',
         tagline: 'Encuentra y publica trabajos para desarrolladores Web',
