@@ -51,11 +51,12 @@ module.exports = () => {
         authController.mostrarPanel)
 
     router.get('/editar-perfil',
-        authController.verificarUsuario,
+        authController.verificarUsuario,        
         usuariosController.formEditarPerfil)
 
     router.post('/editar-perfil',
         authController.verificarUsuario,
+        usuariosController.validarPerfil,
         usuariosController.editarPerfil)
 
     return router
