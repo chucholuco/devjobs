@@ -5,11 +5,18 @@ const Usuarios = mongoose.model('Usuarios');
 
 exports.subirImagen = (req, res, next) => {
     upload(req, res, function(error) {
-        if (error instanceof multer.MulterError) {
+        if (error) {
+            if (error instanceof multer.MulterError) {
+                return next()
+            } else {
+                req.flash('error', error.message)                
+            }
+            res.redirect('/administracion')
+            return
+        } else {
             return next()
-        }
-    }) 
-    next()
+        }        
+    })     
 }
 
 //opciones de multer
@@ -21,15 +28,15 @@ const configuracionMulter = {
         filename: (req, file, cb) => {
             const extension = file.mimetype.split('/')[1]
             cb(null, `${shortid.generate()}.${extension}`) 
-        }
+        } 
     }),
     fileFilter(req, file, cb) {
         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
             // el callback se ejecuta como true o false: true cuando la imagen se acepta
             cb(null, true)
-        } else {
-            cb(null, false)
-        }
+        } else { 
+            cb(new Error('Formato No Valido'), false)
+        } 
     },
     limits: {fileSize: 2000000} //2 MB
 }
