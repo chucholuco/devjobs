@@ -7,7 +7,7 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, async (email, password, done) => {
-    const usuario = await Usuarios.findOne({ email }).lean()
+    const usuario = await Usuarios.findOne({ email })
 
     if(!usuario) return(done(null, false, {
         message: 'Usuario No Existente'
