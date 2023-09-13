@@ -17,6 +17,7 @@ module.exports = () => {
 
     router.post('/vacantes/nueva', 
         authController.verificarUsuario,
+        vacantesController.validarVacante,
         vacantesController.agregarVacante)
 
     // Monstrar Vacante
@@ -29,6 +30,7 @@ module.exports = () => {
     
     router.post('/vacantes/editar/:url', 
         authController.verificarUsuario,
+        vacantesController.validarVacante,
         vacantesController.editarVacante)
 
     router.get('/crear-cuenta', usuariosController.formCrearCuenta)
