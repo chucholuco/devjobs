@@ -12,6 +12,7 @@
   "author": "jesus tapia",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.1",
     "connect-flash": "^0.1.1",
@@ -26,7 +27,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "shortid": "^2.2.16",
-    "slug": "^8.2.3"
+    "slug": "^8.2.3",
+    "sweetalert2": "^11.7.27"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
