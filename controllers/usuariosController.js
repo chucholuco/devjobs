@@ -60,3 +60,28 @@ exports.formIniciarSesion = (req, res) => {
     })
 }
 
+// Form editar el perfil
+exports.formEditarPerfil = (req, res) => {
+    res.render('editar-perfil', {
+        nombrePagina: 'Edita tu perfil en devJobs',
+        usuario: req.user
+    })
+}
+
+// Guardar cambios editar perfil
+exports.editarPerfil = async (req, res) => {
+    const usuario = await Usuarios.findById(req.user._id)
+    
+    usuario.nombre = req.body.nombre
+    usuario.email = req.body.email
+    if(req.body.password) {
+        usuario.password = req.body.password
+    }
+    await usuario.save()
+
+    req.flash('correcto', 'Cambios Guardados Correctamente')
+
+    // redirect
+    res.redirect('/administracion')
+}
+

@@ -7,7 +7,7 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, async (email, password, done) => {
-    const usuario = await Usuarios.findOne({ email })
+    const usuario = await Usuarios.findOne({ email }).lean()
 
     if(!usuario) return(done(null, false, {
         message: 'Usuario No Existente'
@@ -27,7 +27,7 @@ passport.use(new LocalStrategy({
 passport.serializeUser((usuario, done) => done(null, usuario._id))
 
 passport.deserializeUser(async (id, done) => {
-    const usuario = await Usuarios.findById(id).exec()
+    const usuario = await Usuarios.findById(id).lean().exec()
     return done(null, usuario)
 })
 
