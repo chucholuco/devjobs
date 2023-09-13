@@ -11,6 +11,7 @@ const MongoStore = require('connect-mongo')
 const bodyParser = require('body-parser')
 const expressValidator = require('express-validator')
 const flash = require('connect-flash')
+const passport = require('./config/passport')
 
 require('dotenv').config({path: 'variables.env'})
 
@@ -43,6 +44,9 @@ app.use(session({
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.DATABASE })
 }))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 // alertas y flash messages
 app.use(flash())
