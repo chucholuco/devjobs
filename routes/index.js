@@ -54,6 +54,15 @@ module.exports = () => {
     router.post('/reestablecer-password',
         authController.enviarToken);
 
+    // Resetear Password (Almacenar en la BD el nuevo pwd)
+    router.get('/reestablecer-password/:token',
+        authController.reestablecerPassword
+    )
+
+    router.post('/reestablecer-password/:token',
+        authController.guardarPassword
+    )
+
     router.get('/administracion', 
         authController.verificarUsuario,
         authController.mostrarPanel)
