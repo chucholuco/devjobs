@@ -48,6 +48,8 @@ const vacantesSchema = new mongoose.Schema({
     }
 })
 
+vacantesSchema.index({titulo: 'text'})
+
 vacantesSchema.pre('save', function(next) {
     // crear la URL
     const url = slug(this.titulo)
