@@ -27,7 +27,7 @@ app.use(expressValidator())
 // habilitar handlebars como view
 app.engine('handlebars',
     exphbs.engine({
-        defaultLayout: 'layout',
+        defaultLayout: 'layout',        
         helpers: require('./helpers/handlebars')
     })
 )
